@@ -33,6 +33,12 @@ Hemmati et al. [30] classificaram uma lista de diretrizes com base no período d
 
 Portanto, uma das principais contribuições de pesquisa do MSR Cookbook original foi que ele estabeleceu quatro temas de alto nível inspirados nos artigos selecionados: Tema 1: Aquisição e preparação de dados, Tema 2: Síntese, Tema 3: Análise e Tema 4: Compartilhamento e replicação. O Tema 1 foca em como e o que deve ser pré-processado e extraído de artefatos de software, em particular, aqueles coletados de repositórios de software. O Tema 2 está preocupado com a aplicação de algoritmos de mineração, como classificação, colinearidade e mineração de texto, o Tema 3 conduz uma análise estatística e faz uma avaliação do Tema 2. Finalmente, o Tema 4 está preocupado com o compartilhamento de dados e resultados. A Figura 1 mostra esses temas e suas características.
 
+<div align="center">
+  <img src="./assets/A-Mining-Software-Repository-Extended-Cookbook-Lessons-learned-from-a-literature-review/imagem-01-Temas-de-alto-nível.png" />
+</div>
+
+<p align="center">Imagem 01: Temas de alto nível</p>
+
 Existem alguns estudos de mapeamento sistemático sobre MSR. Farias et al. [19] conduziram um estudo baseado em cinco edições do MSRConf entre 2010 e 2015, e obtiveram evidências de análise de software, fontes de dados, métodos de avaliação, ferramentas e como a área de MSR está melhorando. Chaturvedi et al. [13] estudaram as ferramentas empregadas em repositórios de software realizando um mapeamento sistemático dos artigos do MSRConf publicados entre 2007 e 2012. Diferentemente de estudos anteriores, este trabalho preenche a lacuna para pesquisas em novos locais, incluindo, é claro, o MSR como um deles, pois a extração de dados considerou todas as bibliotecas digitais viáveis ​​e disponíveis.
 
 Há também trabalhos relacionados que investigaram MSR concentrando-se apenas em uma plataforma de codificação. Consentino et al. [14] mapearam estudos em plataformas de codificação social, mas focaram apenas no GitHub entre 2009 e 2016. Bavota [11] conduziu um estudo sobre mineração de dados não estruturados em repositórios de software. No entanto, este estudo se afastou de Consentino et al. [14] e Bavota [11], por não se restringir a uma plataforma de codificação ou a uma técnica específica.
@@ -48,6 +54,12 @@ Esta seção descreve a metodologia de pesquisa empregada neste trabalho. Um est
 Um dos principais estágios em um estudo de mapeamento sistemático é definir o objetivo da pesquisa que é realizada neste estudo adotando o modelo de definição de objetivos de Basili et al. [55] conforme mostrado na Figura 2.
 
 Com base nas definições mostradas na Figura 2, este estudo levanta a seguinte questão de pesquisa (RQ): Quais temas de alto nível os estudos primários abordam? O RQ deve dividir os estudos selecionados nos temas propostos pelo MSR Cookbook original, que são aqueles explicados na Seção 2. Além disso, seria útil rastrear o padrão evolutivo das tendências atuais em pesquisa, bem como identificar quaisquer lacunas e fazer recomendações adicionais para fornecer conhecimento mais amplo sobre o tópico.
+
+<div align="center">
+  <img src="./assets/A-Mining-Software-Repository-Extended-Cookbook-Lessons-learned-from-a-literature-review/imagem-02-Definição-de-objetivos-para-o-estudo-de-mapeamento-sistemático.png" />
+</div>
+
+<p align="center">Imagem 02: Definição de objetivos para o estudo de mapeamento sistemático</p>
 
 ### 3.2 Estratégia de busca
 
@@ -79,16 +91,36 @@ Esta seção primeiramente caracteriza os resultados deste estudo, e posteriorme
 
 A extração de dados foi realizada entre setembro e novembro de 2020. Com relação aos procedimentos envolvidos na busca e seleção, na Fase 1 a busca retornou 237 estudos - a maioria obtida pelo IEEE, seguido por ACM e Wiley. A Fase 2 aplicou os critérios de exclusão EC1/2/3/4/5 com um resultado de 187 estudos, e a porcentagem de estudos retornados permaneceu aproximadamente a mesma, ou seja, o IEEE retornou a maioria dos estudos, seguido por ACM e Wiley. Por fim, os critérios de exclusão restantes (ou seja, 6, 7 e 8) foram aplicados na Fase 3 com uma lista final de 112 estudos selecionados e, embora tenha havido menos diferença entre IEEE e ACM, o IEEE foi a biblioteca de dados com mais estudos, seguido por ACM e Wiley.
 
+A Figura 3 descreve o procedimento de busca e seleção por Fase e mostra o número de artigos selecionados e comentários por tema.
+
+<div align="center">
+  <img src="./assets/A-Mining-Software-Repository-Extended-Cookbook-Lessons-learned-from-a-literature-review/imagem-03-Procedimento-de-busca-e-seleção-de-estudos.png" />
+</div>
+
+<p align="center">Imagem 03: Procedimento de busca e seleção de estudos</p>
+
 Além dos detalhes dos artigos, obtidos dos 112 estudos selecionados, o processo de extração de dados permitiu que um número considerável de comentários fosse criado para cada tema (492 no total) que posteriormente culminaram em recomendações.
 
 Com relação aos locais dos artigos selecionados, a MSRConf foi a conferência que teve mais artigos publicados, seguida pela The International Conference on Software Engineering (ICSE)7, The International Conference on Software Maintenance and Evolution (ICSME)8 e The Journal of Software: Evolution and Process
 (JSEP) 9. Isso demonstra que nosso estudo de mapeamento foi capaz de identificar artigos de locais de publicação significativos na área de engenharia de software. A Figura 4 mostra uma representação gráfica da distribuição de artigos entre os locais de publicação.
+
+<div align="center">
+  <img src="./assets/A-Mining-Software-Repository-Extended-Cookbook-Lessons-learned-from-a-literature-review/imagem-04-Estudos-selecionados-de-cada-local.png" />
+</div>
+
+<p align="center">Imagem 04: Estudos selecionados de cada local</p>
 
 ### 4.2 Recomendações de Temas
 
 Esta seção descreve as recomendações atualizadas e novas para cada tema de alto nível do MSR Cookbook estendido. O número de comentários encontrados nos artigos selecionados deste estudo também é mostrado como um meio de demonstrar a significância da recomendação em si, bem como como ela se encaixa no tema.
 
 Nas próximas seções, o esquema a seguir é adotado para introduzir as recomendações e identificar cada um dos temas. A primeira letra denota seu tema – "D" para Extração e Modelagem de Dados (Tema 1), "S" para Síntese (Tema 2), "A" para Análise (Tema 3) e "R" para Resultados (Tema 4). Enquanto a segunda letra indica se a recomendação pertence ao MSR Cookbook original usando a letra "O" (Antigo) ou é algo novo - por meio da letra "N" (Novo). Essas duas letras são combinadas com um número sequencial que é usado para ordenar a recomendação dentro de um tema (ou seja, DO1 deve ser entendido como a primeira recomendação do Tema 1 e uma versão atualizada do MSR Cookbook original). As recomendações sombreadas com um fundo cinza e uma linha sólida em uma caixa de moldura foram aquelas encontradas no MSR Cookbook original, enquanto as sombreadas em verde com uma linha tracejada representam as novas adições feitas a este estudo. Como este estudo é uma extensão, as recomendações originais do MSR Cookbook que não apareceram neste estudo serão mostradas apenas na Figura 6 como referências anteriores.
+
+<div align="center">
+  <img src="./assets/A-Mining-Software-Repository-Extended-Cookbook-Lessons-learned-from-a-literature-review/imagem-06-Evolução-das-recomendações-de-temas.png" />
+</div>
+
+<p align="center">Imagem 06: Evolução das recomendações de temas</p>
 
 #### 4.2.1 Tema 1: Extração e modelagem de dados. 
 
@@ -152,6 +184,12 @@ O Tema 2 obteve a maioria dos artigos, seguido pelo Tema 3, Tema 1 e, finalmente
 
 A Figura 5 representa o padrão evolutivo de estudos selecionados sobre os temas ao longo do tempo. Embora alguns artigos tenham sido encontrados, o número de estudos no Tema 1 está diminuindo. Em contraste, o Tema 2 tem crescido nos últimos anos, especialmente desde 2016, o que sugere que o Tema 2 se tornou uma tendência no campo MSR desde então. Isso pode ser devido ao fato de que as aplicações de mineração de dados têm espaço na literatura e, conforme o campo MSR evolui, a IA está se tornando uma realidade no MSR e pode ser o próximo assunto em crescimento nos próximos anos. No lado oposto, os estudos de pesquisa com relação ao Tema 3 diminuíram nos últimos anos, o que sugere que uma análise de técnicas implementadas não é mais comum. Por último, mas não menos importante, o número de publicações sobre o Tema 4 está aumentando.
 
+<div align="center">
+  <img src="./assets/A-Mining-Software-Repository-Extended-Cookbook-Lessons-learned-from-a-literature-review/imagem-05-Evolução-dos-temas-de-estudos-selecionados.png" />
+</div>
+
+<p align="center">Imagem 05: Evolução dos temas de estudos selecionados</p>
+
 #### 5.2.1 Evolução das recomendações.
 
 Com relação ao padrão evolutivo das recomendações, quando este estudo é comparado com o MSR Cookbook original, a Figura 6 mostra como isso ocorreu. A posição relativa das recomendações originais é mantida no diagrama para permitir uma comparação gráfica, mesmo que elas não tenham sido encontradas em estudos anteriores ou neste trabalho. Quando nossas descobertas foram comparadas com o MSR Cookbook original, houve uma diminuição significativa nas recomendações no Tema 1 que pode ser explicada pela queda no número de artigos nos últimos anos. Embora ainda houvesse recomendações anteriores sobre SCM e extração de código, duas novas recomendações apareceram, mostrando como o MSR havia evoluído. A primeira (DN1) sugeriu maneiras de como executar o MSR mais facilmente, enquanto a segunda (DN2) se concentrou em como os dados históricos podem levar à evolução. O Tema 2 manteve a recomendação do MSR Cookbook original na área de parâmetros de ajuste e condução de uma análise de sensibilidade (SO2), e houve um aumento significativo nesta recomendação. As novas recomendações que este estudo encontrou no Tema 2 mostraram a combinação de técnicas necessárias para atingir melhores resultados, bem como aquelas relacionadas a técnicas de IA, ou seja, um conhecimento de domínio mais rico; seleção de recursos; recursos baseados historicamente; e modelos de aprendizado profundo. O Tema 3 recebeu uma nova recomendação, relacionada à previsão de esforço de software, e manteve as anteriores. Por fim, a única recomendação anterior do Tema 4 também foi mantida, com um aumento no número de seus comentários, embora uma nova recomendação sobre a replicação de estudos também tenha sido identificada.
@@ -161,6 +199,12 @@ Com relação ao padrão evolutivo das recomendações, quando este estudo é co
 O MSR também é impulsionado pela criação de ferramentas para auxiliar na execução de tarefas e na melhoria de processos correlacionados. Spadini et al. [48] criaram a ferramenta PyDriller, uma estrutura Python que facilita a extração de dados de repositórios Git de mineração. A ferramenta Boa [18] fornece instantâneos de projetos Java no GitHub e SourceForge e foi projetada para reduzir a complexidade da mineração. Outras ferramentas estão preocupadas em ajudar a integrar o desenvolvimento de software com outras áreas, como a ferramenta gthbmining [10], cujo objetivo principal é descobrir tendências de DevOps em repositórios públicos. Há também artigos focados em dar conselhos sobre como o MSR deve ser realizado. Kalliamvakou et al. [32] realizaram um estudo empírico sobre repositórios públicos e como os colaboradores devem interagir com eles.
 
 As ferramentas obtidas dos estudos selecionados também são categorizadas, para fortalecer a aplicabilidade do Cookbook estendido. Embora categorizar ferramentas possa ser muito difícil, o principal propósito deste mapeamento de ferramentas é ajudar a comunidade MSR a fazer a melhor escolha para estimular novos experimentos e teorias, permitindo que os pesquisadores tenham mais tempo para se dedicar a fazer avanços na ciência, em vez de criar novas ferramentas que já foram projetadas e publicadas antes. A Tabela 1 exibe as ferramentas coletadas nos estudos selecionados agrupadas por temas e categorias sugeridas, bem como o número de estudos que foram encontrados. Mais detalhes podem ser encontrados no pacote de replicação [9] (folha "Ferramentas").
+
+<div align="center">
+  <img src="./assets/A-Mining-Software-Repository-Extended-Cookbook-Lessons-learned-from-a-literature-review/imagem-07-Resumo-das-ferramentas-utilizadas-em-cada-tema.png" />
+</div>
+
+<p align="center">Tabela 1: Resumo das ferramentas utilizadas em cada tema</p>
 
 ### 5.4 Lições aprendidas
 
@@ -191,3 +235,5 @@ MSR cresceu e se tornou uma das principais áreas de pesquisa em Engenharia de S
 ## AGRADECIMENTOS
 
 Este trabalho é apoiado pelo PROPG e DIRPPG da UTFPR, bem como pelo Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) (Processo n.º 437937/2018-6).
+
+Disponível em: <a href="https://dl.acm.org/doi/10.1145/3474624.3474627">https://dl.acm.org/doi/10.1145/3474624.3474627</a>.
