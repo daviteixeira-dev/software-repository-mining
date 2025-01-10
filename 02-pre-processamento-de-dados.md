@@ -90,12 +90,24 @@ Exemplos de transformação:
 - <b>Padronização de formatos</b>: o uso de alguns tipos de atributos, como datas e números de documentos, permite diferentes formatos. Por exemplo, datas podem ser apresentadas DDMMAAAA ou MMDDAAAA (dependendo do país de origem), um número de CPF pode ser apresentado como XXX.XXX.XXX-XX ou como XXXXXXXXXXX. Para evitar esses problemas, é preciso observar e padronizar o formato de cada atributo da base, principalmente quando diferentes bases precisam ser integradas.
 - <b>Conversão de unidades</b>: outro problema comum nas bases brutas é o uso de diferentes unidades de medida – por exemplo, centímetros ou metros, quilômetros por hora ou milhas por hora etc. Nesse caso, vale o mesmo princípio discutido anteriormente: todos os dados devem ser convertidos e padronizados em uma mesma unidade de medida.
 
-$`
-  x' = \frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}
-`$
 
-```math
-a' = \frac{a - a_{\text{min}}}{a_{\text{max}} - a_{\text{min}}}(a_{\text{novo_max}} - a_{\text{novo_min}}) + a_{\text{novo_min}}
-```
+### Normalização
 
-teste
+A normalização é um processo de transformação dos dados que objetiva torná-los mais apropriados à aplicação de algum algoritmo de mineração, como redes neurais artificiais ou métodos baseados em distância. A necessidade de normalização pode ser consequência de diversos fatores, como evitar a saturação dos neurônios em uma rede neural artificial de múltiplas camadas e fazer com que cada atributo dos dados de entrada tenha o mesmo domínio.
+
+#### Normalização Max-Min
+
+A normalização Max-Min realiza uma transformação linear nos dados originais. Assuma que <b>max_a</b> e <b>min_a</b> são, respectivamente, os valores máximo e mínimo de determinado atributo <b>a</b>. A normalização max-min mapeia um valor a em um valor no domínio , de acordo com seguinte equação:
+
+a' = ((a - min_a) / (max_a - min_a)) * (novo_max_a - novo_min_a) + novo_min_a
+
+A aplicação mais frequente dessa normalização é colocar todos os atributos de uma base de dados sob um mesmo intervalo de valores, por exemplo no intervalo [0, 1].
+
+#### Normalização pelo z-score
+
+Também conhecida por normalização de média zero, os valores de um atributo <b>a</b> são normalizados tendo como base a média e o desvio padrão de <b>a</b>,
+
+a' = (a - ã) / a°
+
+onde <b>ã</b> é a média e <b>a°</b> o desvio padrão de <b>a</b>.
+
