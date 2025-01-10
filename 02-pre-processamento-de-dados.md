@@ -111,3 +111,53 @@ a' = (a - ã) / a°
 
 onde <b>ã</b> é a média e <b>a°</b> o desvio padrão de <b>a</b>.
 
+#### Normalização pelo escalonamento decimal
+
+A normalização pelo escalonamento decimal move a casa decimal dos valores do atributo <b>a</b>. O número de casas decimais movidas depende do valor máximo absoluto do atributo <b>a</b>.
+
+a' = a / 10^j
+
+onde <b>j</b> é o menor inteiro tal que |a'| < 1.
+
+#### Normalização pelo interquartil
+
+A normalização interquartil toma cada valor do atributo, subtrai a mediana e divide pelo intervalo interquartil (IQR, do inglês interquartile range).
+
+Os quartis de um atributo ordenado são os três pontos que dividem o domínio do atributo em quatro grupos de cardinalidades iguais, cada qual composto por um quarto da quantidade total de dados.
+
+- O primeiro quartil, <b>Q1</b> é definido como o ponto central entre o menor valor e a mediana;
+- O segundo quartil, <b>Q2</b>, é a mediana, que divide o conjunto de dados ordenados em dois subconjuntos, cada um contendo metade da quantidade total dos dados;
+- O terceiro quartil, <b>Q3</b>, é o valor do meio entre a mediana e o maior valor do atributo.
+
+A normalização interquartil opera de acordo com a seguinte equação:
+
+a' = a - Q2 / Q3 - Q1
+
+
+## Discretização
+
+Muitos algoritmos em mineração de dados não trabalham com dados mistos, ou seja, bases de dados com atributos categóricos e contínuos.
+
+Nesses casos, atributos numéricos podem ser discretizados, dividindo o domínio do atributo em intervalos e ampliando a quantidade de métodos de análise disponíveis para aplicação.
+
+Além disso, a discretização reduz a quantidade de valores de um dado atributo contínuo, facilitando, em muitos casos, o processo de mineração.
+
+A maneira mais óbvia de discretizar um certo atributo é dividindo seu domínio em um número predeterminado de intervalos iguais, o que normalmente é feito no momento da coleta dos dados.
+
+#### Encaixotamento (binning)
+
+Atributos podem ser discretizados distribuindo-se seus valores em intervalos (bins) e substituindo-se o valor de cada intervalo pela média ou mediana.
+
+Há dois tipos de métodos de encaixotamento: de mesma largura (o intervalo de cada caixa tem o mesmo tamanho) e de mesma frequência (a quantidade de objetos em cada caixa é a mesma).
+
+Em ambos os casos, o método de encaixotamento funciona da seguinte maneira: (1) ordene os valores do atributo, (2) defina a quantidade de caixas, (3) escolha um ou mais valores representativos daquela caixa e (4) substi-tua todos os valores da caixa por esses valores.
+
+O valor representativo pode ser calculado de diferentes maneiras, por exemplo, pela média ou moda da caixa, ou pelos valores extremos da caixa, sendo que, neste último, cada valor dentro da caixa é substituído pelo extremo mais próximo.
+
+#### Histogramas
+
+Similar à discretização por encaixotamento, a discretização por histogramas utiliza faixas para definir os intervalos de valores do atributo. Após a definição do histograma, os valores do atributo são substituídos de acordo com a faixa na qual estes se encontram; com isso, a quantidade de valores discretos dependerá da quantidade de faixas escolhidas.
+
+#### Agrupamentos
+
+Algoritmos de agrupamento são utilizados para particionar o atributo em grupos de valores seguindo um critério preestabelecido. Cada grupo de valores é representado por um protótipo que é utilizado em substituição aos valores que pertencem ao grupo, e diferentes métodos de agrupamento podem ser utilizados para realização dessa tarefa.
