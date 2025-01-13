@@ -86,6 +86,22 @@ A MRS é essencial para o desenvolvimento de software por oferecer benefícios c
   - Mineração de dados e aprendizado de máquina.
   - Estatísticas descritivas e exploratórias.
 
+## Simulação de Pergunta:
+
+### Pergunta: “O que é mineração de repositórios de software (MSR) e quais os principais benefícios que ela oferece ao desenvolvimento de software?”
+
+> Resposta: Mineração de Repositórios de Software, ou MSR, é a prática de extrair e analisar dados armazenados em repositórios de software, como GitHub, GitLab ou Bitbucket. Esses repositórios contêm informações valiosas, como histórico de commits, registros de bugs e interações entre desenvolvedores.
+> 
+> Um dos principais benefícios da MSR é a possibilidade de identificar padrões históricos que podem orientar melhorias no processo de desenvolvimento. Por exemplo:
+> - Detectar módulos do sistema que frequentemente apresentam bugs e precisam de mais atenção.
+> - Avaliar a eficiência das práticas ágeis analisando a frequência e a consistência das entregas.
+>
+> Exemplo Prático:
+> 
+> Um estudo pode ser feito em um projeto real no GitHub. Por exemplo, analisando os commits de um repositório grande, como o Linux Kernel. Com ferramentas como PyDriller, é possível identificar quais arquivos sofrem alterações frequentes e verificar se há uma correlação entre essas alterações e registros de bugs.
+> 
+> “Descobri que alguns módulos sofrem alterações repetitivas em curtos períodos, indicando que são instáveis e necessitam de refatoração.”
+
 ## Estado da Arte na Pesquisa (Tipo 2)
 
 ### Principais Conferências e Periódicos
@@ -112,6 +128,37 @@ A MRS é essencial para o desenvolvimento de software por oferecer benefícios c
 
 > Resposta: "Os principais desafios incluem lidar com o grande volume de dados, que pode dificultar a análise eficiente; a inconsistência dos dados, já que nem todos os sistemas de repositório mantêm padrões uniformes; e questões de privacidade, pois alguns dados podem conter informações sensíveis."
 
+### Pergunta: O que diferencia a mineração de repositórios de software de outras formas de análise de dados em software?
+
+> Resposta: Explique que MSR se concentra em dados históricos armazenados em repositórios (ex.: Git, JIRA) e foca na extração de informações úteis para melhorar processos, enquanto outras análises podem ser mais voltadas para métricas em tempo real ou execução de software.
+
+### Pergunta: Quais tipos de dados são geralmente extraídos de repositórios para MSR, e como esses dados podem ser utilizados?
+
+> Resposta: Extrair informações de commits no Git para medir a frequência de alterações em um módulo específico do sistema e correlacionar isso com a ocorrência de bugs.
+
+### Pergunta: Quais avanços recentes na previsão de defeitos podem ser atribuídos à mineração de repositórios de software?
+
+> Resposta: Cite trabalhos que usam redes neurais ou algoritmos como Random Forest para prever bugs em código com base em metadados como frequência de commits, tamanho das alterações e histórico do autor.
+
+### Pergunta: Como a mineração de repositórios pode apoiar a adoção de práticas ágeis no desenvolvimento de software?
+
+> Resposta: Explique que ela pode identificar gargalos no processo, medir a eficiência de sprints anteriores e ajudar a alinhar prazos com entregas realistas.
+
+### Pergunta: “Como a mineração de repositórios tem contribuído para prever a ocorrência de bugs em sistemas de software?”
+
+> Resposta: A previsão de bugs é um dos campos mais avançados dentro da mineração de repositórios. Utilizando algoritmos de machine learning, é possível construir modelos que analisam métricas como:
+> - A frequência de alterações em um arquivo.
+> - O número de desenvolvedores que modificaram o código.
+> - A complexidade do código.
+>
+> Esses modelos aprendem com dados históricos e ajudam a identificar arquivos ou módulos com alta probabilidade de conterem bugs antes mesmo que eles sejam testados ou lançados.
+>
+> Exemplo Prático:
+>
+> Em um estudo usando o dataset PROMISE, que contém métricas de software e rótulos indicando a presença ou ausência de bugs, pesquisadores treinaram um modelo de Random Forest que atingiu uma precisão de 85% na previsão de defeitos.
+>
+> "Ao aplicar o mesmo modelo em um repositório de código aberto, como o Apache Kafka, foi possível prever com alta confiabilidade os arquivos que seriam problemáticos, permitindo priorizar testes nesses arquivos.”
+
 ### Desafios Atuais
 
 - Volume de Dados: A quantidade massiva de dados em repositórios modernos.
@@ -137,6 +184,24 @@ A MRS é essencial para o desenvolvimento de software por oferecer benefícios c
 
 > Resposta: "Minha experiência em automação de testes e uso extensivo de Git me dá familiaridade com repositórios de software. Já trabalhei com análise de commits para identificar padrões de falhas e garantir a integridade do código."
 
+### Pergunta: Você já trabalhou com alguma ferramenta de análise de repositórios? Como foi sua experiência?
+
+> Resposta: Caso tenha usado Git, mencione comandos como git log para extrair informações manuais, ou ferramentas como PyDriller ou GitMiner para automação.
+
+### Pergunta: Como você planeja aplicar os conceitos de MSR em um projeto de pesquisa de mestrado?
+
+> Resposta: Fale sobre um possível tema, como usar MSR para avaliar a evolução de frameworks open source, destacando o impacto disso no desenvolvimento de software.
+
+### Pergunta: “Você já teve experiência com alguma ferramenta ou abordagem de mineração de dados em repositórios? Como foi a aplicação e quais resultados obteve?”
+
+> Resposta: Sim, durante um projeto pessoal, utilizei a biblioteca PyDriller para analisar commits em um repositório de um projeto open source. O objetivo era identificar quais arquivos eram mais alterados e verificar se essas alterações estavam relacionadas a bugs.
+>
+> Exemplo Prático:
+> 
+> Extraí dados como o autor do commit, a data e a mensagem associada. Depois, cruzei essas informações com os registros de bugs no arquivo issues do GitHub. Descobri que arquivos alterados por muitos desenvolvedores em curtos intervalos apresentavam maior probabilidade de bugs.
+>
+> "Com base nesse padrão, criei um relatório destacando os 10 arquivos mais críticos e sugeri práticas para reduzir os problemas, como a divisão do módulo e a revisão por pares mais frequente.”
+
 ## Avaliação das Competências
 
 ### Competências-Chave
@@ -146,6 +211,31 @@ A MRS é essencial para o desenvolvimento de software por oferecer benefícios c
 - Comunicação Oral: Apresente conceitos de forma clara e organizada.
 - Trabalho Científico: Cite leituras e contribuições à área.
 - Conhecimentos Teóricos e Técnicos: Aprofunde-se nas bases da MSR.
+
+## Comunicação Oral
+
+### Pergunta: “Você consegue explicar de forma simples como a mineração de repositórios pode ajudar a melhorar a qualidade do código?”
+
+> Resposta: Claro! Imagine que um repositório de código é como o histórico médico de uma pessoa. Ele registra todas as “consultas” (commits), “exames” (testes) e até “doenças” (bugs) que o código teve ao longo do tempo. A mineração de repositórios é como um médico que estuda esse histórico para prever e prevenir problemas futuros.
+>
+> Por exemplo:
+> - Se um arquivo é constantemente modificado, ele pode estar mal projetado e precisando de refatoração.
+> - Se muitas pessoas alteram o mesmo trecho de código, pode ser útil criar regras claras de colaboração.
+>
+> “É como encontrar áreas problemáticas em uma casa antes que elas desabem.”
+
+## Análise de Problemas e Raciocínio Lógico
+
+### Pergunta: “Se você encontrasse um módulo de software com alta frequência de alterações e muitos bugs relatados, como você lidaria com essa situação?”
+
+> Resposta: Eu seguiria um plano de ação estruturado:
+> - Identificar as causas: Usaria ferramentas de MSR para analisar os dados históricos e entender por que o módulo é instável. Por exemplo, observaria se o problema está na complexidade do código, na falta de testes ou na má comunicação entre desenvolvedores.
+> - Priorizar ações: Listaria os problemas mais críticos e desenvolveria um plano para atacá-los.
+> - Refatorar e monitorar: Refatoraria o código, adicionaria testes e monitoraria as métricas de qualidade, como a redução no número de bugs após as alterações.
+>
+> Exemplo Prático:
+>
+> “Em um projeto anterior, ao analisar um módulo, percebi que a alta frequência de mudanças estava relacionada à falta de testes unitários. Após adicionar cobertura de testes, os bugs diminuíram em 40% no ciclo seguinte.”
 
 # Data Mining
 
