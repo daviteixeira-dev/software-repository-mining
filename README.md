@@ -22,10 +22,18 @@ A MRS busca entender e melhorar os processos de desenvolvimento e manutenção d
 - Dados de Comunicação (ex.: e-mails, chats de desenvolvimento): Compreender como a interação entre desenvolvedores impacta o desenvolvimento.
 - Métricas de Código (ex.: complexidade ciclomática, linhas de código):: Avaliar a qualidade do código por meio de métricas como complexidade ciclomática e duplicidade.
 
+## Características principais de MRS:
+
+1. Domínio Específico: Focado no desenvolvimento de software e repositórios relacionados, como Git, GitHub, JIRA, etc.
+2. Fontes de Dados: Histórico de commits, registros de bugs, pull requests, linhas de código, e metadados associados ao processo de desenvolvimento.
+3. Objetivo: Melhorar a qualidade do software, prever defeitos, entender a colaboração entre desenvolvedores e otimizar processos de desenvolvimento.
+
 ### Exemplo de Aplicação:
 
 - Previsão de Bugs: Identificar trechos de código propensos a falhas com base no histórico.
 - Dívida Técnica: Detectar áreas do código que precisam de melhorias para reduzir custos de manutenção.
+
+> Exemplo prático: Um pesquisador usa MRS para analisar quais módulos de um sistema apresentam mais bugs, identificando padrões que ajudam a prever futuros problemas e alocar recursos.
 
 ### Áreas de Estudo Comuns
 
@@ -239,7 +247,40 @@ A MRS é essencial para o desenvolvimento de software por oferecer benefícios c
 
 # Data Mining
 
-Data Mining consiste no processo de extrair informação implícita, previamente desconhecida e potencialmente útil, a partir de grandes bases de dados, usando-as para tomada de decisão.
+## O que é Data Mining (Mineração de Dados)?
+
+Data Mining é uma área ampla que se concentra em extrair padrões, conhecimentos úteis e tendências a partir de grandes volumes de dados. Esses dados podem vir de diversas fontes, como bancos de dados, redes sociais, logs de sistemas, sensores IoT, entre outros.
+
+DM propõe várias maneiras para se resolver um problema de classificação ou previsão, os quais combinam técnicas das seguintes áreas: Algoritmos, Inteligência Artificial, Aprendizagem Automática e Banco de Dados.
+
+Algumas das vantagens de DM são: rapidez na procura de uma boa solução, habilidade de combinar muitos atributos, uso de métodos não-paramétricos e suporte a grandes bases de dados. 
+
+Características principais de Data Mining:
+
+1. Domínio Geral: Não está restrito a nenhuma área específica.
+2. Técnicas Utilizadas: Inclui aprendizado de máquina, estatística, redes neurais, e algoritmos de busca de padrões (como clusters e árvores de decisão).
+3. Objetivo: Identificar padrões em qualquer conjunto de dados, como prever comportamento de clientes, detectar fraudes em cartões de crédito ou analisar dados climáticos.
+
+> Exemplo prático: Uma loja usa Data Mining para analisar o comportamento de compras dos clientes e recomendar produtos com base em padrões detectados.
+
+## Diferenças entre MRS e Data Mining
+
+| Aspecto | Data Mining | Mineração de Repositórios de Software (MRS) |
+|---------|-------------|---------------------------------------------|
+| Domínio |	Geral, sem foco em um campo específico. |	Específico para repositórios de software. |
+| Fontes de Dados |	Dados genéricos, como vendas, clima, redes sociais. |	Repositórios de código, logs de desenvolvimento. |
+| Objetivo | Padrões gerais e insights úteis para várias áreas. |	Melhorar o processo e a qualidade do software. |
+| Técnicas Usadas |	Algoritmos de clustering, classificação, regressão, etc. | Muitas vezes adapta técnicas de data mining ao contexto de software. |
+| Exemplo de Uso | Prever comportamento de compra de clientes. | Prever arquivos mais propensos a conter bugs. |
+
+### A Relação entre MRS e Data Mining
+
+Podemos dizer que a MRS é uma aplicação específica de Data Mining no contexto de software. As técnicas utilizadas na MRS são geralmente as mesmas de Data Mining, mas adaptadas e personalizadas para os desafios de entender o histórico e os metadados de repositórios de código.
+
+### Uma Analogia Simples
+
+- ***Data Mining***: É como minerar ouro em uma mina genérica. Você está procurando algo valioso (padrões) em um local com muitos recursos (dados variados).
+- ***MRS***: É como minerar em uma mina de ouro muito específica. Você sabe exatamente o que está procurando (insights sobre software) e a fonte dos dados é delimitada (repositórios de software).
 
 ## Fundamentação Teórica e Estado da Arte
 
@@ -250,11 +291,3 @@ Os problemas aos quais "Data Mining" (DM) é passível de aplicação, podem ser
 Ruídos são incorreções ou falhas contidas nos dados. Estas falhas podem ser atribuídas a várias causas como, por exemplo, erro ou imprecisão na medição de valores das características. Outra causa de ruídos é em umapeamento de um objeto do mundo real, para várias instaâncias da linguagem de descrição da instância, pois, pode haver um erro de representação do objeto. Esse tipo de erro não sistemático é usualmente referido como ruído. Algumas vezes, ruídos ocorrem nos valores de atributos ou nos valores de classes das instâncias. Ruídos representam um problema paraDM porque podem interferir na extração de um conhecimento válido de um conjunto de dados.
 
 Um dos principais requisitos de DM para encontrar uma solução para um problema, é a existência de um repositório com daods confiáveis. Dados confiáveis são os que contém uma baixa porcentagem de ruídos.
-
-### Data Mining
-
-Data Mining consiste no processo de extrair informação implícita, previamente desconhecida e potencialmente útil, a partir de grandes bases de dados, usando-as para tomada de decisão. Um dos principais objetivos de DM é descobrir regras, relacionamentos e padrões globais inexplorados. DM propõe várias maneiras para se resolver um problema de classificação ou previsão, os quais combinam técnicas das seguintes áreas: Algoritmos, Inteligência Artificial, Aprendizagem Automática e Banco de Dados.
-
-Nos dias de hoje, a quantidade de dados existente no mundo está aumentando rapidamente. Este crescimento rápido e demasiado pode dificultar a descoberta de informações valiosa, requerendo-se para esta descoberta, o auxílio de ferramentas cada vez mais poderosas.
-
-Algumas das vantagens de DM são: rapidez na procura de uma boa solução, habilidade de combinar muitos atributos, uso de métodos não-paramétricos e suporte a grandes bases de dados. 
