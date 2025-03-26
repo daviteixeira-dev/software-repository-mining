@@ -40,6 +40,11 @@ O fluxo de trabalho do Jira define um conjunto de estados e transições pelos q
 
 Para relatar um bug na ferramenta Jira, você precisa definir o campo Tipo do problema como um “Bug” durante a criação do problema, atingindo o status ABERTO (Fig. 1). Depois disso, o problema pode passar para outros estados: FECHADO, RESOLVIDO ou EM ANDAMENTO. Ao atingir o status FECHADO, o problema é considerado concluído e o valor do campo Resolução deve ser alterado para “Corrigido”. De forma semelhante, quando o problema transita para o status RESOLVIDO significa que uma resolução foi tomada e está aguardando a verificação do relator do bug. Neste ponto, o valor do campo Resolução também pode ser alterado para “Corrigido”. O status EM ANDAMENTO significa que alguém está trabalhando ativamente para corrigir o bug. Por algum motivo, um problema pode passar do status FECHADO ou RESOLVIDO para o status REABERTO para executar alguma atualização ou revisar a solução fornecida para corrigir o bug.
 
+<div align="center">
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Figure_1-Customized_Jira_Issue_Workflow.png" />
+  <p>Fig. 1 - Fluxo de trabalho de problemas do Jira personalizado</p>
+</div>
+
 ## 3. METODOLOGIA DE COLETA DE DADOS
 
 O conjunto de dados foi construído por meio de um processo de mineração automatizado. Usamos a linguagem de programação Python 3.7.2 para minerar, processar e analisar o conjunto de dados. Todos os dados vieram dos repositórios oficiais Jira5 e Git6 da Apache Software Foundation (ASF). Primeiro, começamos a minerar informações do Jira usando o Jira-Python7, uma biblioteca que facilita a manipulação da API REST do Jira a partir do Python. Nesta etapa, mineramos problemas do tipo “Bug”, com status CLOSED ou RESOLVED, com campo de resolução “Fixed”, e que foram criados e corrigidos entre 2009-01-01 e 2019-01-02.
@@ -51,6 +56,58 @@ Em seguida, usamos os IDs de problemas obtidos para minerar todas as alteraçõe
 ## 4. DESCRIÇÃO DO CONJUNTO DE DADOS
 
 O conjunto de dados é composto por relatórios de bugs de 55 projetos da Apache Software Foundation. Eles são distribuídos em 9 categorias de projetos: big-data (10), banco de dados (8), nuvem (6), servidor de rede (6), estrutura da web (6), segurança (3), gerenciamento de build (4), biblioteca (9) e aprendizado de máquina (3). A lista de nomes de projetos está na Tabela 1, onde são mostrados o nome, a categoria do projeto, o ano do primeiro lançamento e o número de problemas minerados para cada projeto. Coletamos problemas em relação a duas perspectivas: estática e dinâmica.
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Project</th>
+      <th>1st Release</th>
+      <th>#Bugs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>big-data (10)</td>
+      <td>
+        Hadoop Core </br>
+        Hadoop Yarn </br>
+        Hadoop HDFS </br>
+        Hadoop MapReduce </br>
+        Flink </br>
+        Spark </br>
+        Oozie </br>
+        Kafla </br>
+        Storm </br>
+        Giraph </br>
+      </td>
+      <td>
+        2006 </br>
+        2012 </br>
+        2009 </br>
+        2009 </br>
+        2015 </br>
+        2014 </br>
+        2012 </br>
+        2013 </br>
+        2017 </br>
+        2018 </br>
+      </td>
+      <td>
+        2861 </br>
+        2090 </br>
+        3214 </br>
+        2210 </br>
+        3317 </br>
+        6380 </br>
+        1420 </br>
+        2404 </br>
+        1033 </br>
+        373 </br>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### 4.1 Perspectiva Estática
 
@@ -90,7 +147,17 @@ Quanto tempo de esforço é necessário para corrigir um bug específico? Essa �
 
 Com base na Tabela 7, é possível ver que o comportamento do esforço de correção de bugs é diferente, dada uma categoria de software, mas a maioria dos bugs (83,88%) são corrigidos entre 1 hora e 6 meses. Há algumas coisas discrepantes, já que 24,2% e 25,85% dos bugs de segurança e de servidor de rede, respectivamente, são corrigidos em menos de uma hora, enquanto em categorias como big data, banco de dados e nuvem, esse valor está entre 4,39% e 5,24%. Essa discrepância também aparece no BFE ≥ 12M, onde o valor para a categoria de gerenciamento de build é 11,99%, enquanto em segurança é menor que 1%.
 
+<div align="center">
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Figure_2-Log_tranformed_Effort_Boxplot_by_Project.png" />
+  <p>Fig. 2 - Log transformado Effort Boxplot por Projeto</p>
+</div>
+
 As Figuras 2 e 3 mostram o boxplot do esforço transformado em log (para lidar com os dados distorcidos). Os relatórios com esforço menor que uma hora tiveram seus valores truncados para '1'. Os números mostram, mais uma vez, que o comportamento de resolução de esforço dos relatórios é diferente entre categorias e projetos.
+
+<div align="center">
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Figure_3-Log_transformed_Effort_Boxplot_by_Category.png" />
+  <p>Fig. 3 - Log transformado Effort Boxplot por categoria</p>
+</div>
 
 ### 5.3 Mudanças de prioridade
 
@@ -128,6 +195,11 @@ O cessionário é a pessoa responsável por corrigir um determinado bug. Isso é
 
 Mostramos o percentual de relatórios de cada caso na Fig. 4.
 
+<div align="center">
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Figure_4-Assignee_Scenarios.png" />
+  <p>Fig. 4 - Cenários de cessionários</p>
+</div>
+
 A maioria dos relatórios fechados/resolvidos com um cessionário relacionado: os cenários 1 e 3 representam 88,92% dos relatórios. Os cenários 2 e 4 representam 11,08% do total de relatórios, um pequeno número de relatórios que não têm um cessionário relacionado final. Não parece natural que um relatório seja fechado/resolvido sem um cessionário relacionado, exceto em casos em que o relatório é duplicado ou já foi resolvido. Uma investigação para caracterizar esses relatórios pode ajudar a justificar sua existência.
 
 ### 5.5 Mudanças de status
@@ -148,6 +220,11 @@ Uma análise da Tabela 12 revela o comportamento comum de um relatório de bug.
 - Do status “Fechado” (S6), quase todas as mudanças (99,997%) são para o status “Reaberto”, com um pequeno número (0,003%) de mudanças para o status “Resolvido”.
 
 Em seguida, acreditamos que poderia ser um aspecto interessante a ser investigado: qual é a distribuição das mudanças de status nos relatórios? A Fig. 5 mostra essas informações. Para essa visualização, removemos as mudanças de status que registram o mesmo status. Conforme mostrado na Tabela 12, há uma série de mudanças de status que, na verdade, não alteram o status, ou seja, há o registro da mudança de status, mas o status final é igual ao status original. Usamos todos os projetos nessa visualização, pois queremos ver o número de mudanças de status, não o status do estado real. A maioria dos relatórios (73,63%) tem entre 1 a 4 mudanças de status.
+
+<div align="center">
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Figure_5-No._of_Status_Changes_by_No._of_Reports.png" />
+  <p>Fig. 5 - Nº de alterações de status por nº de relatórios</p>
+</div>
 
 ## 6. RELEVÂNCIA DO CONJUNTO DE DADOS
 
