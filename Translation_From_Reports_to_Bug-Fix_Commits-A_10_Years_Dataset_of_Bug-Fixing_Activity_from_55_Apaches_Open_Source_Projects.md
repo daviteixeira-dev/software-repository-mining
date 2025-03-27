@@ -416,9 +416,24 @@ O conjunto de dados dinâmico é composto por três arquivos:
 
 (1) changelog: Este conjunto de dados armazena todas as modificações que já aconteceram em todos os campos de relatórios do Jira. Os campos de dados são mostrados na Tabela 3 e foram extraídos do Jira.
 
+<div align="center">
+  <p>Tabela 3: Campos do Changelog</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_3-Changelog_Fields.png" />
+</div>
+
 (2) comment-log: Este conjunto de dados armazena informações sobre cada comentário relacionado ao seu relatório. Esses campos de dados, extraídos do Jira, são mostrados na Tabela 4 e foram extraídos do Jira.
 
+<div align="center">
+  <p>Tabela 4: Campos do Log de Comentários</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_4-Comment_Log_Fields.png" />
+</div>
+
 (3) commit-log: Vários relatórios de bugs estão relacionados a algum commit que corrige esse bug. Este conjunto de dados armazena informações de commit relacionadas a cada relatório que tem um. As entradas do conjunto de dados trazem informações detalhadas de cada arquivo modificado por commits de correção de bugs. Os campos de dados são mostrados na Tabela 5.
+
+<div align="center">
+  <p>Tabela 5: Campos do log de confirmação</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_5-Commit_log_Fields.png" />
+</div>
 
 ## 5. ANÁLISE DE RELATÓRIOS DE BUGS
 
@@ -434,9 +449,19 @@ O conjunto de dados do changelog contém 853.190 entradas referentes a 63 tipos 
 
 Algumas coisas merecem destaque ao analisarmos a Tabela 6. Primeiro, é natural que todo relatório tenha alterações de Status e Resolução. Todos eles começam com o status ABERTO e concluem com um status FECHADO ou RESOLVIDO; A mesma coisa com o campo Resolução: ele começa com uma resolução NaN e conclui com uma resolução Fixa. Faz sentido que o campo Status seja onde ocorre o maior número de alterações. O relatório de bug tem vários estados de status intermediários até obter um status FECHADO ou RESOLVIDO. As alterações no campo Assignee são a quinta da lista e estão presentes em quase 55% do relatório. Vale a pena investigar isso porque o Assignee é uma peça fundamental no processo de correção de bugs. Pode-se argumentar que o processo de correção de bugs por si só começa com a definição do Assignee ou quando há algum tipo de resposta (um comentário, uma alteração de um campo, etc.) após a criação do relatório de bugs. É difícil acreditar que o bug será corrigido se ninguém for responsável por ele. Mas como explicar que apenas um pouco mais da metade dos relatórios tem alguma alteração no Assignee? Pode-se argumentar que o Assignee é definido quando o relatório é criado e nunca muda. Ou talvez que o bug seja corrigido por uma pessoa que cria o relatório e nunca foi definida como Assignee no relatório do Jira. O bug pode ser identificado como duplicado ou mesmo que não é um bug antes da etapa de definição do Assignee. Essas questões serão exploradas nas seções a seguir. A última coisa a destacar são as Priority Changes. A prioridade é objeto de estudo em vários artigos relacionados a relatórios de bugs [14] [15] [11] [16]. O número relativamente baixo de alterações (apenas em 14,90% dos relatórios) pode ser uma evidência de que a dica inicial, definida na criação do relatório de bugs, é precisa.
 
+<div align="center">
+  <p>Tabela 6: As 15 mudanças mais comuns</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_6-The_Top_15_most_common_changes.png" />
+</div>
+
 ### 5.2 Esforço de correção de bugs
 
 Quanto tempo de esforço é necessário para corrigir um bug específico? Essa é uma questão que foi pesquisada por vários cientistas [19] [1] [6] [22]. Uma vez que essa é uma questão muito importante em relação ao orçamento e aos aspectos de estimativa do próximo lançamento, queremos ver a distribuição do tempo de vida dos bugs em nosso conjunto de dados. Definimos Bug-Fix Effort (BFE) como o intervalo entre CreationDate e ResolutionDate, ou seja, BFE = ResolutionDate - CreationDate. O intervalo usado para agrupar os relatórios por seu tempo de resolução é baseado em [10]. A Tabela 7 mostra a distribuição para oito intervalos BFE. Escolhemos agrupar os projetos por categoria, não individualmente, por questões de espaço. Os significados dos rótulos das colunas são: ‘h’ (hora), ‘d’ (dia) e ‘M’ (mês).
+
+<div align="center">
+  <p>Tabela 7: Esforço de correção de bugs</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_7-Bug_Fix_Effort.png" />
+</div>
 
 Com base na Tabela 7, é possível ver que o comportamento do esforço de correção de bugs é diferente, dada uma categoria de software, mas a maioria dos bugs (83,88%) são corrigidos entre 1 hora e 6 meses. Há algumas coisas discrepantes, já que 24,2% e 25,85% dos bugs de segurança e de servidor de rede, respectivamente, são corrigidos em menos de uma hora, enquanto em categorias como big data, banco de dados e nuvem, esse valor está entre 4,39% e 5,24%. Essa discrepância também aparece no BFE ≥ 12M, onde o valor para a categoria de gerenciamento de build é 11,99%, enquanto em segurança é menor que 1%.
 
@@ -458,13 +483,28 @@ Para executar uma análise das alterações de Prioridade, é necessário defini
 
 A primeira coisa que queremos mostrar é: quão diferente é a distribuição dos valores de prioridade entre quando os relatórios são criados e quando são resolvidos/fechados? Respondemos a essa pergunta na Tabela 8.
 
+<div align="center">
+  <p>Tabela 8: Distribuição dos valores de prioridade inicial e final</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_8-Initial_and_Final_Priority_Values_Distribution.png" />
+</div>
+
 A primeira coisa a notar é que várias alterações estão relacionadas a relatórios que terminam com prioridade "Low", "Normal" e "Urgente". Mas, como apontado antes, esses são tipos de prioridade exclusivos do projeto Cassandra. A soma total das alterações do Cassandra representa 46,30% de todas as alterações de prioridade. Como não podemos definir precisamente o que esses tipos de prioridade exclusivos significam ou qual é seu valor equivalente no conjunto de valores de prioridade padrão do Jira, optamos por remover as alterações de prioridade do projeto Cassandra para fornecer um cenário mais geral. Acreditamos que esses valores únicos são os valores de prioridade padrão do Cassandra e todas, pelo menos a grande quantidade, das mudanças de prioridade representam a adaptação dos valores de status padrão aos valores de prioridade padrão do Cassandra. Essa hipótese faz mais sentido quando verificamos que todos os relatórios do Cassandra têm pelo menos uma mudança de prioridade. A Tabela 9 mostra esse novo cenário sem os relatórios do Cassandra.
 
 Na Tabela 9, vemos que todos os valores de prioridade finais são maiores que os iniciais, exceto o valor "Major". Isso pode indicar que a dica inicial para um relatório com valor de prioridade incerto é o "Major" e, mais tarde, no tempo de vida do relatório, ocorre a definição do valor de prioridade real.
 
+<div align="center">
+  <p>Tabela 9: Distribuição dos valores de prioridade inicial e final (sem o Projeto “Cassandra”)</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_9-Initial_and_Final_Priority_Values_Distribution_without_Cassandra_Project.png" />
+</div>
+
 A próxima coisa a verificar é: qual é a distribuição da mudança de prioridade por categorias de software? A resposta está na Tabela 10. A primeira coluna é o nome da categoria. A segunda coluna é o número absoluto de mudanças de prioridade nos relatórios para a categoria fornecida. A terceira coluna representa quanto em percentil o valor na segunda coluna representa em relação ao total de relatórios para a categoria especificada. Na categoria do banco de dados, temos uma particularidade. Os valores com um “*” representam o número sem o projeto “Cassandra”, uma vez que seus valores de prioridade são diferentes em comparação com o padrão e todos os outros valores de prioridade do projeto.
 
 A Tabela 10 mostra que as mudanças de prioridade têm um comportamento particular em diferentes categorias. As mudanças são mais comuns em projetos de big data, rede-servidor, aprendizado de máquina e nuvem.
+
+<div align="center">
+  <p>Tabela 10: Número de alterações por categoria.</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_10-Number_of_Changes_by_Category.png" />
+</div>
 
 A última coisa que queremos verificar no aspecto das mudanças de prioridade é a frequência delas no mesmo relatório. Em outras palavras, qual é a distribuição de vezes que um determinado relatório muda sua prioridade? Descobrimos que, se houver reatribuição de prioridade em um relatório, essa mudança acontece apenas uma vez em 88,06% dos relatórios, duas vezes em 9,78% e 1,39% mais de duas vezes. Como vemos, a mudança de prioridade não é uma atividade comum.
 
@@ -501,6 +541,11 @@ As mudanças de status definem em qual fase do ciclo de vida do relatório um re
 
 A Tabela 11 mostra que “Open”, “Resolved”, “Closed” e “Re-opened” são os valores de status mais frequentes. Eles estão presentes em todos os projetos do conjunto de dados, sendo um valor “From” ou “To”. Os projetos “MESOS” e “CASSANDRA” têm seus próprios valores de Status exclusivos. Isso provavelmente tem a mesma explicação dos valores exclusivos de prioridade “CASSANDRA”: esses são valores de status de projeto exclusivos que são definidos pelo processo de triagem de bugs da empresa do projeto.
 
+<div align="center">
+  <p>Tabela 11: Lista de valores de status.</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_11-Status_Values_List.png" />
+</div>
+
 Seja S = {S1 = “Aberto”, S2 = “Resolvido”, S3 = “Patch Disponível”, S4 = “Em Andamento”, S5 = “Reaberto”, S6 = “Fechado”} um conjunto de mudanças de status de todos os projetos. A Tabela 12 mostra a matriz adjacente de mudanças de status. Removemos as ocorrências de valores de status exclusivos dos projetos “Mesos” e “Cassandra” para um cenário mais geral.
 
 Uma análise da Tabela 12 revela o comportamento comum de um relatório de bug.
@@ -511,6 +556,11 @@ Uma análise da Tabela 12 revela o comportamento comum de um relatório de bug.
 - De status “Em andamento” (S4), vai em sua maioria para o status “Resolvido” (57,96%) ou “Patch disponível” (32,11%) e ocasionalmente para o status “Aberto” (4,32%) ou “Fechado” (5,11%).
 - Do status “Reaberto” (S5), ele vai em sua maioria (63,49%) para o status “Resolvido”, ocasionalmente para o status “Patch Disponível” (17,41%), “Fechado” (13,29%) ou “Em Andamento” (5,16%).
 - Do status “Fechado” (S6), quase todas as mudanças (99,997%) são para o status “Reaberto”, com um pequeno número (0,003%) de mudanças para o status “Resolvido”.
+
+<div align="center">
+  <p>Tabela 12: Matriz Adjacente de Mudanças de Status.</p>
+  <img src="assets/From_Reports_to_Bug-Fix_Commits-A_10_Years_Dataset_of_Bug-Fixing_Activity_from_55_Apaches_Open_Source_Projects/Table_12-Adjacent_Matrix_of_Status_Changes.png" />
+</div>
 
 Em seguida, acreditamos que poderia ser um aspecto interessante a ser investigado: qual é a distribuição das mudanças de status nos relatórios? A Fig. 5 mostra essas informações. Para essa visualização, removemos as mudanças de status que registram o mesmo status. Conforme mostrado na Tabela 12, há uma série de mudanças de status que, na verdade, não alteram o status, ou seja, há o registro da mudança de status, mas o status final é igual ao status original. Usamos todos os projetos nessa visualização, pois queremos ver o número de mudanças de status, não o status do estado real. A maioria dos relatórios (73,63%) tem entre 1 a 4 mudanças de status.
 
