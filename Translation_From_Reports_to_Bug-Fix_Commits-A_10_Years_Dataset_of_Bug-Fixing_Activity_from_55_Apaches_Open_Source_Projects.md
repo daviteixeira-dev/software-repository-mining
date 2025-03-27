@@ -345,6 +345,69 @@ Na perspectiva estática, coletamos informações da última versão do relatór
 
 A lista completa de campos do conjunto de dados de perspectiva estática (snapshot) pode ser encontrada na Tabela 2. A maioria dos nomes é autoexplicativa, mas em caso de dúvida, a descrição completa do campo pode ser encontrada no site do pacote de replicação.
 
+<div align="center">
+  <table>
+    <caption>Tabela 2: Campos do conjunto de dados estáticos</caption>
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>Type</th>
+        <th>Field</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Jira (30)
+        </td>
+        <td>
+          <ul>
+            <li>General (10)</li>
+            <li>Link (2)</li>
+            <li>Summation (4)</li>
+            <li>Text (3)</li>
+            <li>Time (8)</li>
+            <li>Versioning (2)</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Project; Owner; Manager; Category; Key; Priority; Status; Reporter; Assignee; Components</li>
+            <li>InwardIssueLinks; OutwardIssueLinks</li>
+            <li>NoComments; NoWatchers; NoAttachments; NoAttachedPatches</li>
+            <li>SummaryTopWords; DescriptionTopWords; CommentsTopWords</li>
+            <li>CreationDate; ResolutionDate; FirstCommentDate; LastCommentDate; FirstAttachmentDate; LastAttachmentDate; FirstAttachedPatchDate; LastAttachedPatchDate</li>
+            <li>AffectsVersions; FixVersions</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Git (24)
+        </td>
+        <td>
+          <ul>
+            <li>Text (1)</li>
+            <li>Versioning (1)</li>
+            <li>Summation (3)</li>
+            <li>Time (4)</li>
+            <li>Source (15)</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>CommitsMessagesTopWords</li>
+            <li>HasMergeCommit</li>
+            <li>NoCommits; NoAuthors; NoCommitters</li>
+            <li>AuthorsFirstCommitDate; AuthorsLastCommitDate; CommittersFirstCommitDate; CommittersLastCommitDate</li>
+            <li>NonSrcAddFiles; NonSrcDelFiles; NonSrcModFiles; NonSrcAddLines; NonSrcDelLines; SrcAddFiles; SrcDelFiles; SrcModFiles; SrcAddLines; SrcDelLines; TestAddFiles; TestDelFiles; TestModFiles; TestAddLines; TestDelLines</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 ### 4.2 Perspectiva Dinâmica
 
 Cada relatório de bug começa com algumas informações padrão fornecidas pelo autor. Por exemplo, alguns atributos são sempre criados com o relatório e nunca mudam, como Key (o identificador exclusivo do relatório) e CreationDate. Outros atributos, como Assignee e Priority, são comumente definidos na criação do relatório, mas não são obrigatórios e podem ser alterados durante o tempo de vida do relatório. Alguns outros atributos são difíceis de inserir, a menos que tenha passado um tempo após a criação do relatório. Exemplos são as versões afetadas pelo bug e outros problemas relacionados, uma vez que novas instâncias dessas informações podem surgir mais tarde no processo de reparo do bug. O tipo de atributos de soma está intrinsecamente relacionado ao tempo de vida do relatório, pois o número de comentários, observadores e anexos cresce à medida que o tempo de vida do relatório de bug passa. A perspectiva dinâmica do conjunto de dados representa esses momentos em que o relatório muda, quando novas informações são adicionadas ao relatório ou uma mudança de campo, como: mudança de status; definição ou mudança de prioridade; a escrita de um novo comentário; um novo colaborador começa a observar um problema.
