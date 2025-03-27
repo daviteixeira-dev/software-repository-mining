@@ -57,57 +57,287 @@ Em seguida, usamos os IDs de problemas obtidos para minerar todas as alteraçõe
 
 O conjunto de dados é composto por relatórios de bugs de 55 projetos da Apache Software Foundation. Eles são distribuídos em 9 categorias de projetos: big-data (10), banco de dados (8), nuvem (6), servidor de rede (6), estrutura da web (6), segurança (3), gerenciamento de build (4), biblioteca (9) e aprendizado de máquina (3). A lista de nomes de projetos está na Tabela 1, onde são mostrados o nome, a categoria do projeto, o ano do primeiro lançamento e o número de problemas minerados para cada projeto. Coletamos problemas em relação a duas perspectivas: estática e dinâmica.
 
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Project</th>
-      <th>1st Release</th>
-      <th>#Bugs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>big-data (10)</td>
-      <td>
-        Hadoop Core </br>
-        Hadoop Yarn </br>
-        Hadoop HDFS </br>
-        Hadoop MapReduce </br>
-        Flink </br>
-        Spark </br>
-        Oozie </br>
-        Kafla </br>
-        Storm </br>
-        Giraph </br>
-      </td>
-      <td>
-        2006 </br>
-        2012 </br>
-        2009 </br>
-        2009 </br>
-        2015 </br>
-        2014 </br>
-        2012 </br>
-        2013 </br>
-        2017 </br>
-        2018 </br>
-      </td>
-      <td>
-        2861 </br>
-        2090 </br>
-        3214 </br>
-        2210 </br>
-        3317 </br>
-        6380 </br>
-        1420 </br>
-        2404 </br>
-        1033 </br>
-        373 </br>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div align="center">
+  <table>
+    <caption>
+      Tabela 1: Lista de Projetos Alvo
+    </caption>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Project</th>
+        <th>1st Release</th>
+        <th>#Bugs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          big-data (10)
+        </td>
+        <td>
+          Hadoop Core </br>
+          Hadoop Yarn </br>
+          Hadoop HDFS </br>
+          Hadoop MapReduce </br>
+          Flink </br>
+          Spark </br>
+          Oozie </br>
+          Kafla </br>
+          Storm </br>
+          Giraph </br>
+        </td>
+        <td>
+          2006 </br>
+          2012 </br>
+          2009 </br>
+          2009 </br>
+          2015 </br>
+          2014 </br>
+          2012 </br>
+          2013 </br>
+          2017 </br>
+          2018 </br>
+        </td>
+        <td>
+          2861 </br>
+          2090 </br>
+          3214 </br>
+          2210 </br>
+          3317 </br>
+          6380 </br>
+          1420 </br>
+          2404 </br>
+          1033 </br>
+          373 </br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          database (8)
+        </td>
+        <td>
+          Hive </br>
+          Cassandra </br>
+          Lucene Core </br>
+          HBase </br>
+          ZooKeeper </br>
+          Derby </br>
+          OpenJPA </br>
+          Phoenix </br>
+        </td>
+        <td>
+          2010 </br>
+          2009 </br>
+          2006 </br>
+          2006 </br>
+          2006 </br>
+          2006 </br>
+          2006 </br>
+          2006 </br>
+        </td>
+        <td>
+          7105 </br>
+          5001 </br>
+          2004 </br>
+          6693 </br>
+          882 </br>
+          1083 </br>
+          653 </br>
+          1564 </br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          cloud (6)
+        </td>
+        <td>
+          Libcloud </br>
+          jclouds </br>
+          Mesos </br>
+          VCL </br>
+          Helix </br>
+          Ignite </br>
+        </td>
+        <td>
+          2011 </br>
+          2013 </br>
+          2013 </br>
+          2013 </br>
+          2014 </br>
+          2015 </br>
+        </td>
+        <td>
+          229 </br>
+          435 </br>
+          2558 </br>
+          425 </br>
+          188 </br>
+          2726 </br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          network-server (6)
+        </td>
+        <td>
+          TomEE </br>
+          Mina </br>
+          Mina FtpServer </br>
+          Mina SSHD </br>
+          Mina Vysper </br>
+          Camel </br>
+        </td>
+        <td>
+          2013 </br>
+          2006 </br>
+          2008 </br>
+          2009 </br>
+          2010 </br>
+          2009 </br>
+        </td>
+        <td>
+          713 </br>
+          171 </br>
+          66 </br>
+          285 </br>
+          66 </br>
+          3232 </br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          web-framework (6)
+        </td>
+        <td>
+          MyFaces </br>
+          Struts </br>
+          Nutch </br>
+          Isis </br>
+          Solr </br>
+          Tapestry </br>
+        </td>
+        <td>
+          2005 </br>
+          2002 </br>
+          2012 </br>
+          2013 </br>
+          2006 </br>
+          2009 </br>
+        </td>
+        <td>
+          913 </br>
+          725 </br>
+          547 </br>
+          410 </br>
+          2249 </br>
+          711 </br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          security (3)
+        </td>
+        <td>
+          Kerby </br>
+          Fortress </br>
+          Syncope </br>
+        </td>
+        <td>
+          2006 </br>
+          2015 </br>
+          2012 </br>
+        </td>
+        <td>
+          179 </br>
+          76 </br>
+          654 </br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          build-management (4)
+        </td>
+        <td>
+          Archiva </br>
+          Ivy </br>
+          MNG </br>
+          Buildr </br>
+        </td>
+        <td>
+          2007 </br>
+          2006 </br>
+          2012 </br>
+          2009 </br>
+        </td>
+        <td>
+          320 </br>
+          204 </br>
+          584 </br>
+          227 </br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          library (9)
+        </td>
+        <td>
+          Commons Compress </br>
+          Commons Colections </br>
+          Commons IO </br>
+          Commons Math </br>
+          Commons Codec </br>
+          Commons LANG </br>
+          Log4J 2 </br>
+          Crunch </br>
+          Tika </br>
+        </td>
+        <td>
+          2009 </br>
+          2001 </br>
+          2004 </br>
+          2004 </br>
+          2003 </br>
+          2002 </br>
+          2014 </br>
+          2013 </br>
+          2011 </br>
+        </td>
+        <td>
+          189 </br>
+          103 </br>
+          103 </br>
+          418 </br>
+          64 </br>
+          264 </br>
+          754 </br>
+          292 </br>
+          762 </br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          machine-learning (3)
+        </td>
+        <td>
+          SystemML </br>
+          Mahout </br>
+          MADlibr </br>
+        </td>
+        <td>
+          2017 </br>
+          2010 </br>
+          2017 </br>
+        </td>
+        <td>
+          489 </br>
+          592 </br>
+          83 </br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ### 4.1 Perspectiva Estática
 
